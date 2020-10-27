@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AnswerCard from './components/AnswerCard';
+import NextButton from './components/NextButton';
+import QuestionCard from './components/QuestionCard';
+import StartButton from './components/StartButton';
+import Header from './components/Header';
+import Score from './components/Score';
+import { QuizType } from './components/QuizType';
+import {QuizProvider} from './globalstate/context'
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QuizProvider>
+        <Header />
+        <QuizType />
+        <StartButton />
+        <Score />
+        <QuestionCard />
+        <AnswerCard />
+        <NextButton />
+      </QuizProvider>
     </div>
   );
 }
